@@ -2,22 +2,28 @@
   "special_ticker": {
 
   },
+
   "ticker": [
-    ["Graviex", "ZEL", "BTC"],
-    ["Stex", "ZEL", "BTC"],
-    ["Stex", "ZEL", "ETH"],
-    ["TradeOgre", "ZEL", "BTC"],
-    ["Tokok", "ZEL", "BTC"],
-    ["Tokok", "ZEL", "ETH"],
-    ["SafeTrade", "ZEL", "BTC"],
-    ["SafeTrade", "ZEL", "SAFE"]
+    ["Crex24", "ESBC", "BTC"],
+    ["Crex24", "ESBC", "RUB"],
+    ["Graviex", "ESBC", "BTC"],
+    ["Stex", "ESBC", "BTC"],
+    ["Birake", "ESBC", "BTC"],
+    ["StakeCube", "ESBC", "BTC"],
+    ["StakeCube", "ESBC", "LTC"],
+    ["StakeCube", "ESBC", "SCC"],
+    ["StakeCube", "ESBC", "DOGE"],
+    ["StakeCube", "ESBC", "DASH"],
+    ["Midex", "ESBC", "BTC"],
+    ["CITEX", "ESBC", "BTC"]
   ],
   "color": {
     "prices": 3447003,
     "coininfo": 888688,
-    "basic" : 12758363,
-    "super1" : 14348789,
-    "bamf" : 16112128,
+    "coininfo1": 13467442,
+    "coininfo2": 12632319,
+    "coininfo3": 16766720,
+    "coininfo4": 14671065,
     "explorer": 888688,
     "other": 15662976,
     "error": 9375030
@@ -27,75 +33,63 @@
   ],
   "stages": [
     {
-      "block": 657000,
-      "coll": 100000,
-      "mn": 22.50,
-      "pow": 112.50
-    },
-    {
-      "block": 1642500,
-      "coll": 100000,
-      "mn":11.25 ,
-      "pow": 56.25
-    },
-    {
-      "block": 4106250,
-      "coll": 100000,
-      "mn": 5.625,
-      "pow": 28.125
-    },
-    {
-      "block": 10265625,
-      "coll": 100000,
-      "mn": 2.8125,
-      "pow": 14.0625
+      "block": 522808,
+      "coll": 1,
+      "mn": 20.25,
+      "pos": 2.25,
+      "devfee": 2.50
     }
-    
   ],
-
   "stages1": [
     {
-      "block": 657000,
-      "coll": 10000,
-      "mn": 5.625,
-      "pow": 112.5 
+      "block": 522808,
+      "coll": 5000,
+      "mn": 3.375,
+      "pos": 2.25,
+      "devfee": 2.50
     }
-    
   ],
- 
   "stages2": [
     {
-      "block": 657000,
+      "block": 522808,
       "coll": 25000,
-      "mn": 9.375,
-      "pow": 112.5
+      "mn": 4.50,
+      "pos": 2.25,
+      "devfee": 2.50
     }
-
   ],
-
   "stages3": [
     {
-      "block": 657000,
-      "coll": 100000,
-      "mn": 22.5,
-      "pow": 112.5
+      "block": 522808,
+      "coll": 50000,
+      "mn": 5.625,
+      "pos": 2.25,
+      "devfee": 2.50
     }
-
+  ],
+  "stages4": [
+    {
+      "block": 522808,
+      "coll": 250000,
+      "mn": 6.75,
+      "pos": 2.25,
+      "devfee": 2.50
+    }
   ],
 
   "requests": {
-    "blockcount": "zelcash-cli getblockcount",
-    "mncount": "zelcash-cli getzelnodecount | jq  .total",
-    "mncount1": "zelcash-cli getzelnodecount | jq .",
-    "mncount2": "zelcash-cli getzelnodecount | jq .",
-    "mncount3": "zelcash-cli getzelnodecount | jq .",
-    "supply": "curl -s  https://explorer.zel.cash/api/circulation | jq .circulationsupply",
-    "balance": "curl -k https://explorer.zel.cash/api/addr/",
-    "blockindex": "zelcash-cli getblockhash ",
-    "blockhash": "zelcash-cli getblock ",
-    "hashrate": "zelcash-cli getnetworkhashps",
-    "mnstat": "zelcash-cli listzelnodes  ",
-    "addnodes": "zelcash-cli getpeerlist"
+    "blockcount": "esbcoin-cli getblockcount",
+    "mncount": "esbcoin-cli getmasternodecount | jq .grandtotal",
+    "mncount1": "esbcoin-cli getmasternodecount | jq  .total | jq .[0] | jq .count",
+    "mncount2": "esbcoin-cli getmasternodecount | jq  .total | jq .[1] | jq .count",
+    "mncount3": "esbcoin-cli getmasternodecount | jq  .total | jq .[2] | jq .count",
+    "mncount4": "esbcoin-cli getmasternodecount | jq  .total | jq .[3] | jq .count",
+    "supply": "curl -s https://blockchain.esbc.pro/ext/getmoneysupply",
+    "balance": "curl -s https://blockchain.esbc.pro/ext/getaddress/",
+    "blockindex": "esbcoin-cli getblockhash ",
+    "blockhash": "esbcoin-cli getblock ",
+    "mnstat": "esbcoin-cli masternode list ",
+    "addnodes": "esbcoin-cli getpeerinfo"
   },
   "statorder": [
     "blockcount",
@@ -103,7 +97,7 @@
     "supply",
     "collateral",
     "mnreward",
-    "powreward",
+    "posreward",
     "devfee",
     "locked",
     "avgmnreward",
@@ -111,16 +105,16 @@
   ],
   "monitor": {
     "enabled": true,
-    "channel": "642595194327400498",
+    "channel": "678490565838635029",
     "interval": 600
   },
   "hidenotsupported": false,
   "useraddrs": true,
   "usermns": true,
-  "sourcecode": "https://github.com/CryptominerPaul/",
-  "channel": [ "503796710867206144", "566329958478118912"],
+  "sourcecode": "https://github.com/neo3587/discord_cryptobot",
+  "channel": [ "678490746726383635", "672212160423919655"  ],
   "prefix": "%",
-  "coin": "ZEL",
+  "coin": "ESBC",
   "blocktime": 120,
   "token": "YOU_WILL_NEED_YOUR_OWN_TOKEN_"
 }
